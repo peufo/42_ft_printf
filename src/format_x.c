@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:38:29 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 11:38:54 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 17:17:34 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	format_x_lower(va_list args)
 {
-	long	n;
+	unsigned int	n;
 
-	n = va_arg(args, long);
-	return (ft_putnbr_base(n, "0123456789abcdef"));
+	n = va_arg(args, unsigned int);
+	return (ft_put_long(n, "0123456789abcdef"));
 }
 
 int	format_x_upper(va_list args)
 {
-	long	n;
+	unsigned int	n;
 
-	n = va_arg(args, long);
-	return (ft_putnbr_base(n, "0123456789ABCDEF"));
+	n = va_arg(args, unsigned int);
+	return (ft_put_long(n, "0123456789ABCDEF"));
 }

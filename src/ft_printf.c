@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:56:21 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 12:43:44 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:16:37 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	init_formaters(t_formater	*formaters)
 	formaters['c'] = format_c;
 	formaters['s'] = format_s;
 	formaters['p'] = format_p;
-	formaters['d'] = format_d;
-	formaters['i'] = format_i;
+	formaters['d'] = format_di;
+	formaters['i'] = format_di;
 	formaters['u'] = format_u;
 	formaters['x'] = format_x_lower;
 	formaters['X'] = format_x_upper;
@@ -33,7 +33,7 @@ static void	handle_flag(
 {
 	(*str)++;
 	if (**str && f[(int)**str])
-		*count = f[(int)*(*str)++](args);
+		*count += f[(int)*(*str)++](args);
 	return ;
 }
 

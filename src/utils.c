@@ -1,21 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_i.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 18:32:41 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 12:41:31 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/19 15:13:43 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/19 15:14:15 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	format_i(va_list args)
+int	ft_strlen(char *str)
 {
-	int	n;
+	int	len;
 
-	n = va_arg(args, int);
-	return (ft_putnbr_base(n, "0123456789"));
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+int	ft_includes(char str[], char c)
+{
+	while (*str)
+	{
+		if (*str == c)
+			return (1);
+		str++;
+	}
+	return (0);
+}
+
+int	ft_is_valid_base(char base[])
+{
+	while (*base)
+	{
+		if (*base < ' '
+			|| *base == 127
+			|| *base == '+'
+			|| *base == '-'
+			|| ft_includes(base + 1, *base))
+			return (0);
+		base++;
+	}
+	return (1);
 }

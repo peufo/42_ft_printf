@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:14:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 12:41:56 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:07:22 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	format_s(va_list args)
 	str = va_arg(args, char *);
 	cursor = str;
 	if (!str)
-		return (-1);
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (*cursor)
 		write(1, cursor++, 1);
 	return (cursor - str);
