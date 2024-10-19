@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:32:41 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 11:31:20 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:41:31 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	format_i(va_list args)
 {
-	long n = va_arg(args, long);
+	int	n;
+
+	n = va_arg(args, int);
 	return (ft_putnbr_base(n, "0123456789"));
 }

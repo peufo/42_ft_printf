@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:56:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 11:31:43 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:41:26 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	format_c(va_list args)
 {
-	int c;
+	int	c;
 
 	c = va_arg(args, int);
 	write(1, &c, 1);

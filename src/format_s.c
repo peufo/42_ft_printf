@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:14:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 11:35:27 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:41:56 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	format_s(va_list args)
 {
 	char	*str;
 	char	*cursor;
+
 	str = va_arg(args, char *);
 	cursor = str;
 	if (!str)

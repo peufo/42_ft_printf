@@ -6,13 +6,13 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:56:21 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 12:02:05 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:43:44 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	void init_formaters(t_formater	*formaters)
+static void	init_formaters(t_formater	*formaters)
 {
 	formaters['c'] = format_c;
 	formaters['s'] = format_s;
@@ -25,7 +25,11 @@ static	void init_formaters(t_formater	*formaters)
 	formaters['%'] = format_percent;
 }
 
-static void	handle_flag(t_formater	*f, const char **str, int *count, va_list args)
+static void	handle_flag(
+	t_formater	*f,
+	const char **str,
+	int *count,
+	va_list args)
 {
 	(*str)++;
 	if (**str && f[(int)**str])
@@ -43,13 +47,15 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	count = 0;
 	while (*str && count > -1)
+	{
 		if (*str == '%')
-			handle_flag(formaters, &str, &count, args);
-		else
 		{
-			write(1, str++, 1);
-			count++;
+			handle_flag(formaters, &str, &count, args);
+			continue ;
 		}
+		write(1, str++, 1);
+		count++;
+	}
 	va_end(args);
 	return (count);
 }

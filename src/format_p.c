@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:56:24 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 11:32:09 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:41:40 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	format_p(va_list args)
 {
-	int	put_count;
-	long n;
+	int		put_count;
+	long	n;
 
 	n = va_arg(args, long);
 	write(1, "0x", 2);
