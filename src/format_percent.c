@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format__.c                                         :+:      :+:    :+:   */
+/*   format_percent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:45:49 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/18 18:57:36 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 11:32:57 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format__(void *arg)
+int	format_percent(va_list args)
 {
-	(void)arg;
+	(void)args;
 	write(1, "%", 1);
 	return (1);
 }

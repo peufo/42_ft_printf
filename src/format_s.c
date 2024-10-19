@@ -6,21 +6,21 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:14:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/18 18:07:39 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 11:35:27 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_c(void *arg)
+int	format_s(va_list args)
 {
-	char			*str;
-	unsigned long	len;
-
-	str = (char *)arg;
-	len = 0;
-	while (str[len])
-		len++;
-	write(1, str, len);
-	return (len);
+	char	*str;
+	char	*cursor;
+	str = va_arg(args, char *);
+	cursor = str;
+	if (!str)
+		return (-1);
+	while (*cursor)
+		write(1, cursor++, 1);
+	return (cursor - str);
 }

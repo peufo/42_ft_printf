@@ -6,18 +6,24 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:38:29 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/18 19:02:30 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 11:38:54 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_x(void *arg)
+int	format_x_lower(va_list args)
 {
-	return (ft_putnbr_base(*(long *)arg, "0123456789abcdef"));
+	long	n;
+
+	n = va_arg(args, long);
+	return (ft_putnbr_base(n, "0123456789abcdef"));
 }
 
-int	format_xx(void *arg)
+int	format_x_upper(va_list args)
 {
-	return (ft_putnbr_base(*(long *)arg, "0123456789ABCDEF"));
+	long	n;
+
+	n = va_arg(args, long);
+	return (ft_putnbr_base(n, "0123456789ABCDEF"));
 }
