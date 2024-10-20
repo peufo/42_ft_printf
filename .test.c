@@ -13,66 +13,105 @@
 #include "src/format_u.c"
 #include "src/format_x.c"
 
+
+// %[flags][width][.precision]specifier
+
+//	[flags]
+//		"0"	si ![.precision] && ![flags="-"] => padleft width "0"
+//		"#"	if specifier="x" => prefix "0x", if specifier == "X" -> prefix "0X"
+//		"-"	padleft devient padright
+//		" "	Inclue le sign [" ",  "-"]
+//		"+"	Inclue le sign ["+",  "-"] (prend le dessus sur " ")
+//	[width]
+//		nombre minimal de caracter imprimé
+//	[.precision]
+//		padleft du nombre avec des "0". signe exclue
+
 int main()
 {
-	char c = 'a';
-	int n = 42;
-	char str[] = "prout";
-	int n_max = INT_MAX;
-	int n_min = INT_MIN;
-	int un_max = UINT32_MAX;
+
+	int pos = 42;
+	int neg = -42;
+
+	printf("\n d\n");
+	printf("[% d]\n", pos);
+	printf("[% d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n+d\n");
+	printf("[%+d]\n", pos);
+	printf("[%+d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n0d\n");
+	printf("[%0d]\n", pos);
+	printf("[%0d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n8d\n");
+	printf("[%8d]\n", pos);
+	printf("[%8d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n 8d\n");
+	printf("[% 8d]\n", pos);
+	printf("[% 8d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n08d\n");
+	printf("[%08d]\n", pos);
+	printf("[%08d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n 08d\n");
+	printf("[% 08d]\n", pos);
+	printf("[% 08d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n.8d\n");
+	printf("[%.8d]\n", pos);
+	printf("[%.8d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n .8d\n");
+	printf("[% .8d]\n", pos);
+	printf("[% .8d]\n", neg);
+	printf("[123456789]\n");
+
+	printf("\n8.5d\n");
+	printf("[%8.5d]\n", pos);
+	printf("[%8.5d]\n", neg);
+	printf("[123456789]\n");
 
 
-	write(1, "\n", 1);
-	printf("bsd d:%d \t i:%i \t c:%c\n", n, n, c);
-	ft_printf("ft  d:%d \t i:%i \t c:%c \n", n, n, c);
+	printf("\n08.5d\n");
+	printf("[%08.5d]\n", pos);
+	printf("[%08.5d]\n", neg);
+	printf("[123456789]\n");
 
-	write(1, "\n", 1);
-	printf("bsd d:%d \t i:%+i\n", n_max, n_max);
-	ft_printf("ft  d:%d \t i:%i \n", n_max, n_max);
+	printf("\n2.1d\n");
+	printf("[%2.1d]\n", pos);
+	printf("[%2.1d]\n", neg);
+	printf("[123456789]\n");
 
-	write(1, "\n", 1);
-	printf("bsd u:%u \n", un_max);
-	ft_printf("ft  u:%u \n", un_max);
+	printf("\n5.5d\n");
+	printf("[%5.5d]\n", pos);
+	printf("[%5.5d]\n", neg);
+	printf("[123456789]\n");
 
-	write(1, "\n", 1);
-	printf("bsd d:%d \t i:% i\n", n_min, n_min);
-	ft_printf("ft  d:%d \t i:%i \n", n_min, n_min);
+	printf("\n6.5d\n");
+	printf("[%6.5d]\n", pos);
+	printf("[%6.5d]\n", neg);
+	printf("[123456789]\n");
 
-	write(1, "\n", 1);
-	printf("bsd s:%s percent:%%\n", str);
-	ft_printf("ft  s:%s percent:%%\n", str);
+	printf("\n 5.5d\n");
+	printf("[% 5.5d]\n", pos);
+	printf("[% 5.5d]\n", neg);
+	printf("[123456789]\n");
 
-	write(1, "\n", 1);
-	printf("bsd s:%s\n", str);
-	ft_printf("ft  s:%s\n", str);
-
-	write(1, "\n", 1);
-	printf("bsd p:%p\n", str);
-	ft_printf("ft  p:%p\n", str);
-
-	write(1, "\n", 1);
-	printf("bsd x:%x\n", n_max);
-	ft_printf("ft  x:%x\n", n_max);
-	write(1, "\n", 1);
-	printf("bsd X:%#X\n", n_max);
-	ft_printf("ft  X:%X\n", n_max);
-
-	write(1, "\n", 1);
-	printf("TEST \"%-16d\"\n", n_min);
-	printf("TEST \"%30d\"\n", n_min);
-
-	write(1, "\n", 1);
-	printf("%lx\n", LONG_MAX);
-
-	n = printf("\001\002\007\v\010\f\r\n");
-	printf("\n%d", n);
-	n = ft_printf("\001\002\007\v\010\f\r\n");
-	ft_printf("\n%d", n);
+	printf("\n 6.5d\n");
+	printf("[% 6.5d]\n", pos);
+	printf("[% 6.5d]\n", neg);
+	printf("[123456789]\n");
 
 }
-
-
-
-
-
