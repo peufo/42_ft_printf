@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_percent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:45:49 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 11:32:57 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 20:58:29 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 int	format_percent(va_list args)
 {
 	(void)args;
-	write(1, "%", 1);
-	return (1);
+	return (write(1, "%", 1));
 }

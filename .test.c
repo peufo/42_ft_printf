@@ -65,7 +65,10 @@ int main()
 	write(1, "\n", 1);
 	printf("%lx\n", LONG_MAX);
 
-
+	n = printf("\001\002\007\v\010\f\r\n");
+	printf("\n%d", n);
+	n = ft_printf("\001\002\007\v\010\f\r\n");
+	ft_printf("\n%d", n);
 
 }
 

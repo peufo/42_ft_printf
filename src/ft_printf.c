@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:56:21 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 15:16:37 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/19 21:03:05 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,16 @@ static void	handle_flag(
 	int *count,
 	va_list args)
 {
+	int	result;
+
 	(*str)++;
+	result = 0;
 	if (**str && f[(int)**str])
-		*count += f[(int)*(*str)++](args);
+		result = f[(int)*(*str)++](args);
+	if (result == -1)
+		*count = -1;
+	else
+		*count += result;
 	return ;
 }
 
