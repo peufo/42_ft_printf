@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:56:21 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 21:03:05 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/20 12:25:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ int	ft_printf(const char *str, ...)
 			handle_flag(formaters, &str, &count, args);
 			continue ;
 		}
-		write(1, str++, 1);
+		if (write(1, str++, 1) == -1)
+		{
+			count = -1;
+			break ;
+		}
 		count++;
 	}
 	va_end(args);

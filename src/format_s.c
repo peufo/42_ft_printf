@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:14:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 21:03:41 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/20 12:23:47 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,9 @@
 int	format_s(va_list args)
 {
 	char	*str;
-	char	*cursor;
 
 	str = va_arg(args, char *);
-	cursor = str;
 	if (!str)
-	{
 		return (write(1, "(null)", 6));
-	}
-	while (*cursor)
-		if (write(1, cursor++, 1) == -1)
-			return (-1);
-	return (cursor - str);
+	return (write(1, str, ft_strlen(str)));
 }

@@ -20,7 +20,8 @@ static int	ft_unit(unsigned long nbr, char *base, int base_len, int count)
 		return (count);
 	unit = nbr % base_len;
 	count = ft_unit(nbr / base_len, base, base_len, count);
-	write(1, base + unit, 1);
+	if (count == -1 || write(1, base + unit, 1) == -1)
+		return (-1);
 	return (count + 1);
 }
 
@@ -32,9 +33,6 @@ int	ft_put_ulong(unsigned long nbr, char *base)
 	if (base_len < 2 || !ft_is_valid_base(base))
 		return (-1);
 	if (!nbr)
-	{
-		write(1, base, 1);
-		return (1);
-	}
+		return (write(1, base, 1));
 	return (ft_unit(nbr, base, base_len, 0));
 }

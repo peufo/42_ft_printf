@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_c.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
+/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:56:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 20:58:13 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/20 12:22:21 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	format_c(va_list args)
 {
 	int	c;
-	int	count;	
 
 	c = va_arg(args, int);
-	count = write(1, &c, 1);
-	return (count);
+	return (write(1, &c, 1));
 }
