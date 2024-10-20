@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:08:33 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/19 15:16:19 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/20 15:55:44 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int	format_di(va_list args)
 	int	n;
 
 	n = va_arg(args, int);
-	return (ft_put_long(n, "0123456789"));
+	return (ft_put_nbr(n, "0123456789"));
 }

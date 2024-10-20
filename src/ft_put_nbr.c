@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_long.c                                   :+:      :+:    :+:   */
+/*   ft_put_nbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -28,7 +28,7 @@ static int	ft_put_unit(long nbr, char *base, int base_len, int count)
 	return (count + 1);
 }
 
-int	ft_put_long(long nbr, char *base)
+int	ft_put_nbr(long nbr, char *base)
 {
 	int	base_len;
 
