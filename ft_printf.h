@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/20 16:46:51 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/20 17:56:26 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct s_format {
 	int			precision;
 	char		fill;
 	char		sign_positive;
-	char		prefix_hex;
+	char		is_prefix_hex;
+	char		is_padright;
 }	t_format;
 
 int		ft_printf(const char *str, ...);
@@ -41,5 +42,6 @@ int		ft_put_unbr(unsigned long nbr, char *base);
 int		ft_strlen(char *str);
 int		ft_includes(char str[], char c);
 int		ft_is_valid_base(char base[]);
+int		ft_is_digit(char c);
 
 #endif

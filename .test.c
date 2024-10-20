@@ -36,5 +36,5 @@
 
 int main()
 {
-	ft_printf("%%");
+	printf("char: %000 ld\n", sizeof(char));
 }

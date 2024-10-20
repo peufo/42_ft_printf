@@ -22,6 +22,7 @@
 		"unordered_map": "cpp",
 		"vector": "cpp",
 		"stdlib.h": "c",
-		"ostream": "c"
+		"ostream": "c",
+		"string.h": "c"
 	}
 }
