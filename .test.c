@@ -40,31 +40,31 @@
 int main()
 {
 	printf("\n");
-	printf("[%4d]\n", -42);
-	ft_printf("[%4d]\n", -42);
+	printf("[%4.4d]\n", 42);
+	ft_printf("[%4.4d]\n", 42);
 
 	printf("\n");
-	printf("[%- 4d]\n", -42);
-	ft_printf("[%- 4d]\n", -42);
+	printf("[%- 4.4d]\n", 42);
+	ft_printf("[%- 4.4d]\n", 42);
 
 	printf("\n");
-	printf("[%-+4d]\n", -42);
-	ft_printf("[%-+4d]\n", -42);
+	printf("[%-+4.4d]\n", 42);
+	ft_printf("[%-+4.4d]\n", 42);
 
 	printf("\n");
-	printf("[%0+4d]\n", -42);
-	ft_printf("[%0+4d]\n", -42);
+	printf("[%0+4.4d]\n", 42);
+	ft_printf("[%0+4.4d]\n", 42);
 
 	printf("\n");
-	printf("[%0 4d]\n", -42);
-	ft_printf("[%0 4d]\n", -42);
+	printf("[%0 4.4d]\n", 42);
+	ft_printf("[%0 4.4d]\n", 42);
 
 	printf("\n");
-	printf("[%04d]\n", -42);
-	ft_printf("[%04d]\n", -42);
+	printf("[%04.4d]\n", 42);
+	ft_printf("[%04.4d]\n", 42);
 
 	printf("\n");
-	printf("[%+4d]\n", -42);
-	ft_printf("[%+4d]\n", -42);
+	printf("[%+4.4d]\n", 42);
+	ft_printf("[%+4.4d]\n", 42);
 
 }
