@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:17:09 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 12:14:46 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:51:27 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ int	handle_flag(const char **str, va_list args)
 
 	init_flag(str, &format);
 	if (format.formater)
-		return (format.formater(args));
+		return (format.formater(args, format));
 	return (-1);
 }

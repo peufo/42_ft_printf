@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 12:40:15 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:52:14 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-typedef int	(*t_formater)(va_list args);
-typedef struct s_format {
+typedef struct s_format	t_format;
+typedef int				(*t_formater)(va_list args, t_format format);
+struct	s_format {
 	t_formater	formater;
 	int			width;
 	int			precision;
@@ -25,18 +26,18 @@ typedef struct s_format {
 	char		sign_positive;
 	char		is_prefix_hex;
 	char		is_padright;
-}	t_format;
+};
 
 int		ft_printf(const char *str, ...);
 int		handle_flag(const char **str, va_list args);
-int		format_c(va_list args);
-int		format_s(va_list args);
-int		format_p(va_list args);
-int		format_di(va_list args);
-int		format_u(va_list args);
-int		format_x_lower(va_list args);
-int		format_x_upper(va_list args);
-int		format_percent(va_list args);
+int		format_c(va_list args, t_format format);
+int		format_s(va_list args, t_format format);
+int		format_p(va_list args, t_format format);
+int		format_di(va_list args, t_format format);
+int		format_u(va_list args, t_format format);
+int		format_x_lower(va_list args, t_format format);
+int		format_x_upper(va_list args, t_format format);
+int		format_percent(va_list args, t_format format);
 int		ft_put_nbr(long nbr, char *base);
 int		ft_put_unbr(unsigned long nbr, char *base);
 int		ft_strlen(char *str);

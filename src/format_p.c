@@ -6,17 +6,18 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:56:24 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/20 15:44:01 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:49:06 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_p(va_list args)
+int	format_p(va_list args, t_format format)
 {
 	int		put_count;
 	long	n;
 
+	(void)format;
 	n = va_arg(args, long);
 	if (write(1, "0x", 2) == -1)
 		return (-1);
