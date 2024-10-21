@@ -5,6 +5,9 @@
 #include "src/ft_printf.c"
 #include "src/ft_put_nbr.c"
 #include "src/ft_put_unbr.c"
+#include "src/ft_pad.c"
+#include "src/ft_atoi.c"
+#include "src/ft_itoa.c"
 #include "src/handle_flag.c"
 #include "src/format_c.c"
 #include "src/format_di.c"
@@ -36,7 +39,6 @@
 
 int main()
 {
-
-	printf("char: [%2c]\n", 'P');
-	ft_printf("char: [%2c]\n", 'P');
+	printf("char: [%-32c]\n", 'P');
+	ft_printf("char: [%32c]\n", 'P');
 }

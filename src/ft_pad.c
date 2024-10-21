@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_percent.c                                   :+:      :+:    :+:   */
+/*   ft_pad.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 18:45:49 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:05:21 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/21 12:53:10 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/21 13:14:18 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_percent(va_list args, t_format *format)
+int	ft_padleft(char *str, int str_len, t_format *format)
 {
-	(void)args;
-	(void)format;
-	return (write(1, "%", 1));
+	int	to_add;
+	int	print_count;
+
+	to_add = format->width - str_len;
+	if (to_add <= 0)
+		return (write(1, str, str_len));
+	print_count = 0;
+	while (print_count < to_add)
+	{
+		if (write(1, &(format->fill), 1) == -1)
+			return (-1);
+		print_count++;
+	}
+	if (write(1, str, str_len) == -1)
+		return (-1);
+	return (print_count + str_len);
 }
