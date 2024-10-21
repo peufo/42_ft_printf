@@ -39,32 +39,38 @@
 
 int main()
 {
+	int n = 42;
+	
 	printf("\n");
-	printf("[%4.4d]\n", 42);
-	ft_printf("[%4.4d]\n", 42);
+	printf("[%7.4d]\n", n);
+	ft_printf("[%7.4d]\n", n);
 
 	printf("\n");
-	printf("[%- 4.4d]\n", 42);
-	ft_printf("[%- 4.4d]\n", 42);
+	printf("[%- 7.4d]\n", n);
+	ft_printf("[%- 7.4d]\n", n);
 
 	printf("\n");
-	printf("[%-+4.4d]\n", 42);
-	ft_printf("[%-+4.4d]\n", 42);
+	printf("[%-+7.4d]\n", n);
+	ft_printf("[%-+7.4d]\n", n);
 
 	printf("\n");
-	printf("[%0+4.4d]\n", 42);
-	ft_printf("[%0+4.4d]\n", 42);
+	printf("[%-7.4d]\n", n);
+	ft_printf("[%-7.4d]\n", n);
 
 	printf("\n");
-	printf("[%0 4.4d]\n", 42);
-	ft_printf("[%0 4.4d]\n", 42);
+	printf("[%0+7.4d]\n", n);
+	ft_printf("[%0+7.4d]\n", n);
 
 	printf("\n");
-	printf("[%04.4d]\n", 42);
-	ft_printf("[%04.4d]\n", 42);
+	printf("[%0 7.4d]\n", n);
+	ft_printf("[%0 7.4d]\n", n);
 
 	printf("\n");
-	printf("[%+4.4d]\n", 42);
-	ft_printf("[%+4.4d]\n", 42);
+	printf("[%07.4d]\n", n);
+	ft_printf("[%07.4d]\n", n);
+
+	printf("\n");
+	printf("[%+7.4d]\n", n);
+	ft_printf("[%+7.4d]\n", n);
 
 }
