@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/20 17:56:26 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:40:15 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ int		ft_strlen(char *str);
 int		ft_includes(char str[], char c);
 int		ft_is_valid_base(char base[]);
 int		ft_is_digit(char c);
+int		ft_atoi(const char **str);
+int		ft_itoa(char *dest, int n, char *base);
+int		ft_uitoa(char *dest, unsigned int n, char *base);
 
 #endif

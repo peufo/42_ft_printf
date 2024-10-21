@@ -36,5 +36,7 @@
 
 int main()
 {
-	printf("char: %000 ld\n", sizeof(char));
+
+	printf("char: [%2c]\n", 'P');
+	ft_printf("char: [%2c]\n", 'P');
 }

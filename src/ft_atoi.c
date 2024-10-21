@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_c.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 15:56:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 12:44:15 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/21 11:59:51 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/21 12:14:59 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_c(va_list args)
+int	ft_atoi(const char **str)
 {
-	int	c;
+	int	n;
 
-	c = va_arg(args, int);
-	return (write(1, &c, 1));
+	if (!**str || !ft_is_digit(**str))
+		return (0);
+	n = **str - '0';
+	(*str)++;
+	return (n + ft_atoi(str));
 }

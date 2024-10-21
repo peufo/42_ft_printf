@@ -3,13 +3,11 @@ DIR_SRC = ./src
 DIR_BUILD = build
 FLAGS = -Wall -Wextra -Werror -I ./
 
-SOURCES		=	format_c.c format_di.c format_p.c format_percent.c format_s.c format_u.c format_x.c ft_printf.c ft_put_nbr.c ft_put_unbr.c handle_flag.c utils.c
+SOURCES		=	format_c.c format_di.c format_p.c format_percent.c format_s.c format_u.c format_x.c ft_atoi.c ft_itoa.c ft_printf.c ft_put_nbr.c ft_put_unbr.c handle_flag.c utils.c 
 FUNCTIONS	=	$(subst .c,,$(notdir $(SOURCES)))
 OBJECTS		=	$(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 
 all: $(NAME)
-
-bonus: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@ar -cr $@ $^
