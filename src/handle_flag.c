@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:17:09 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 15:17:24 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:26:31 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	capture_flags(char c, t_format *format)
 	if (!c || !ft_includes("0#- +", c))
 		return (0);
 	if (c == '0')
-		format->fill = '0';
+		format->is_expand_zero = 1;
 	else if (c == '#')
 		format->is_prefix_hex = 1;
 	else if (c == '-')
@@ -61,18 +61,18 @@ static void	init_flag(const char **str, t_format *format)
 
 	(*str)++;
 	init_formaters(formaters);
-	format->fill = ' ';
 	format->formater = NULL;
 	format->precision = 0;
 	format->is_padright = 0;
 	format->is_prefix_hex = 0;
+	format->is_expand_zero = 0;
 	format->sign_positive = '\0';
 	while (capture_flags(**str, format))
 		(*str)++;
 	format->width = ft_atoi(str);
 	capture_precision(str, format);
 	if (format->precision)
-		format->fill = ' ';
+		format->is_expand_zero = 0;
 	format->formater = formaters[(int)*(*str)++];
 }
 

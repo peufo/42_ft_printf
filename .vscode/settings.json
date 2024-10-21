@@ -23,6 +23,7 @@
 		"vector": "cpp",
 		"stdlib.h": "c",
 		"ostream": "c",
-		"string.h": "c"
+		"string.h": "c",
+		"bitset": "c"
 	}
 }

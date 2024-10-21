@@ -6,17 +6,42 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:08:33 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:04:59 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:11:34 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static int	write_sign(int n, t_format *format)
+{
+	if (n < 0)
+	{
+		format->width--;
+		return (write(1, &"-", 1));
+	}
+	if (format->sign_positive)
+	{
+		format->width--;
+		return (write(1, &format->sign_positive, 1));
+	}
+	return (0);
+}
+
 int	format_di(va_list args, t_format *format)
 {
-	int	n;
+	char	str[12];
+	int		str_len;
+	int		n;
 
-	(void)format;
 	n = va_arg(args, int);
-	return (ft_put_nbr(n, "0123456789"));
+	str_len = ft_itoa(str, n, "0123456789", format);
+	if (format->is_expand_zero)
+	{
+		if (write_sign(n, format) == -1)
+			return (-1);
+		return (ft_pad(str + 1, str_len - 1, format));
+	}
+	if (!format->sign_positive && n > 0)
+		return (ft_pad(str + 1, str_len - 1, format));
+	return (ft_pad(str, str_len, format));
 }

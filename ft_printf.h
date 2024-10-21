@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:26:16 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:08:18 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ struct	s_format {
 	t_formater	formater;
 	int			width;
 	int			precision;
-	char		fill;
 	char		sign_positive;
 	char		is_prefix_hex;
 	char		is_padright;
+	char		is_expand_zero;
 };
 
 int		ft_printf(const char *str, ...);
@@ -45,7 +45,7 @@ int		ft_includes(char str[], char c);
 int		ft_is_valid_base(char base[]);
 int		ft_is_digit(char c);
 int		ft_atoi(const char **str);
-int		ft_itoa(char *dest, int n, char *base);
+int		ft_itoa(char *dest, int n, char *base, t_format *format);
 int		ft_uitoa(char *dest, unsigned int n, char *base);
 int		ft_pad(char *str, int str_len, t_format *format);
 

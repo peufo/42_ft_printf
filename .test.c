@@ -40,10 +40,31 @@
 int main()
 {
 	printf("\n");
-	printf("[%32c]\n", 'P');
-	ft_printf("[%32c]\n", 'P');
+	printf("[%4d]\n", -42);
+	ft_printf("[%4d]\n", -42);
 
 	printf("\n");
-	printf("[%-32c]\n", 'P');
-	ft_printf("[%-32c]\n", 'P');
+	printf("[%- 4d]\n", -42);
+	ft_printf("[%- 4d]\n", -42);
+
+	printf("\n");
+	printf("[%-+4d]\n", -42);
+	ft_printf("[%-+4d]\n", -42);
+
+	printf("\n");
+	printf("[%0+4d]\n", -42);
+	ft_printf("[%0+4d]\n", -42);
+
+	printf("\n");
+	printf("[%0 4d]\n", -42);
+	ft_printf("[%0 4d]\n", -42);
+
+	printf("\n");
+	printf("[%04d]\n", -42);
+	ft_printf("[%04d]\n", -42);
+
+	printf("\n");
+	printf("[%+4d]\n", -42);
+	ft_printf("[%+4d]\n", -42);
+
 }

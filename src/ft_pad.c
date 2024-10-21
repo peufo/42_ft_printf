@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 12:53:10 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 15:05:27 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:11:59 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 static int	ft_padleft(char *str, int str_len, t_format *format)
 {
-	int	to_add;
-	int	print_count;
+	int		to_add;
+	int		print_count;
+	char	fill;
 
+	fill = ' ';
+	if (format->is_expand_zero)
+		fill = '0';
 	to_add = format->width - str_len;
 	print_count = 0;
 	while (print_count < to_add)
 	{
-		if (write(1, &(format->fill), 1) == -1)
+		if (write(1, &fill, 1) == -1)
 			return (-1);
 		print_count++;
 	}
@@ -41,7 +45,7 @@ static int	ft_padright(char *str, int str_len, t_format *format)
 	print_count = 0;
 	while (print_count < to_add)
 	{
-		if (write(1, &(format->fill), 1) == -1)
+		if (write(1, " ", 1) == -1)
 			return (-1);
 		print_count++;
 	}
