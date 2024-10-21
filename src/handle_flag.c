@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:17:09 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:10:38 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:17:24 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static void	init_flag(const char **str, t_format *format)
 	format->fill = ' ';
 	format->formater = NULL;
 	format->precision = 0;
+	format->is_padright = 0;
 	format->is_prefix_hex = 0;
 	format->sign_positive = '\0';
 	while (capture_flags(**str, format))

@@ -30,7 +30,7 @@ watch() {
 				echo "$NORM_ERROR"
 			fi
 
-			rm test
+			rm -f test
 			make test
 			if [ ! -f "test" ]; then
 				warning "COMPILATION FAILED"

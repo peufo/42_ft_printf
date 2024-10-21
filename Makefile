@@ -22,7 +22,7 @@ so: $(OBJECTS)
 	@cc -nostartfiles -shared -o libft.so $(OBJECTS)
 
 test: all ./.test.c
-	cc $(FLAGS) -L ./ -lftprintf ./.test.c -o test
+	@cc $(FLAGS) -L ./ -lftprintf ./.test.c -o test
 
 clean:
 	rm -rf $(DIR_BUILD)

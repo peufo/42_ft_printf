@@ -39,6 +39,11 @@
 
 int main()
 {
-	printf("char: [%-32c]\n", 'P');
-	ft_printf("char: [%32c]\n", 'P');
+	printf("\n");
+	printf("[%32c]\n", 'P');
+	ft_printf("[%32c]\n", 'P');
+
+	printf("\n");
+	printf("[%-32c]\n", 'P');
+	ft_printf("[%-32c]\n", 'P');
 }

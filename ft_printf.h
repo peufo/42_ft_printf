@@ -6,7 +6,7 @@
 /*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:13:54 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/21 13:26:16 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ int		ft_is_digit(char c);
 int		ft_atoi(const char **str);
 int		ft_itoa(char *dest, int n, char *base);
 int		ft_uitoa(char *dest, unsigned int n, char *base);
-int		ft_padleft(char *str, int str_len, t_format *format);
+int		ft_pad(char *str, int str_len, t_format *format);
 
 #endif
