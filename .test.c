@@ -44,13 +44,6 @@ int main()
 	int expected;
 	int received;
 
-	TEST("%.5x", 21);
-	TEST("%.3x", 0);
-	TEST("%8.5x", 34);
-	TEST("%8.5x", 0);
-	TEST("%2.7x", 3267);
-	TEST("%-8.5x", 34);
-	TEST("%-8.5x", 0);
-	TEST("%-2.7x", 3267);
+	TEST("{%03.2d}", 0);
 
 }

@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:38:29 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 19:23:51 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:28:12 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	format_x(va_list *args, t_format *fm, char *base)
 		_str += 2;
 	if (fm->precision > str_len)
 		return (ft_run_precision_unsigned(fm, _str, str_len));
+	if (fm->is_precision_defined && !fm->precision)
+		return (ft_run(fm, ft_put_pad(_str, 0, fm)));
 	fm->put_count = ft_put_pad(_str, str_len, fm);
 }
 
