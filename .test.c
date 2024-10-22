@@ -43,8 +43,12 @@ int main()
 	// char *s2 = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
 
 	printf("\n");
-	printf("[%.s]\n", (char *)0);
-	ft_printf("[%.s]\n", (char *)0);
+	printf("[%3%]\n");
+	ft_printf("[%3%]\n");
+
+	printf("\n");
+	printf("[%-3%]\n");
+	ft_printf("[%-3%]\n");
 
 	printf("\n");
 	printf("[%.d]\n", n);
