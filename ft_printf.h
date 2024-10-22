@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 17:02:50 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:17:28 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ struct	s_format
 	char		is_padright;
 	char		is_expand_zero;
 	char		is_sign_print;
+	char		is_precision_defined;
 };
 
 int		ft_printf(const char *str, ...);
