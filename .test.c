@@ -44,17 +44,6 @@ int main()
 	int expected;
 	int received;
 
-	TEST(" %#X ", 1);
-	TEST(" %#X ", 9);
-	TEST(" %#X ", 10);
-	TEST(" %#X ", 11);
-	TEST(" %#X ", 15);
-	TEST(" %#X ", 16);
-	TEST(" %#X ", 17);
-	TEST(" %#X ", 99);
-	TEST(" %#X ", 100);
-	TEST(" %#X ", 101);
-	TEST(" %#X ", -9);
-	TEST(" %#X ", -10);
+	TEST(" %#x ", 0);
 
 }

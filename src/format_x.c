@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:38:29 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 20:21:52 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 20:25:32 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	format_x(va_list *args, t_format *fm, char prefix, char *base)
 	str[0] = '0';
 	str[1] = prefix;
 	str_len = ft_uitoa(str + 2, n, base);
-	if (fm->is_prefix_hex)
+	if (fm->is_prefix_hex && n > 0)
 		str_len += 2;
 	else
 		_str += 2;
