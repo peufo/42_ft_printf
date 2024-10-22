@@ -31,31 +31,23 @@
 //	[.precision]
 //		padleft du nombre avec des "0". signe exclue
 
-/**
- *
- *
- *
- */
+#define TEST(...) \
+	printf("%s:%d\n[", __FILE__, __LINE__); \
+	expected = printf(__VA_ARGS__); \
+	printf("]\n"); \
+	ft_printf("["); \
+	received = ft_printf(__VA_ARGS__); \
+	ft_printf("]\n"); \
+	if (expected != received) \
+		printf("expected : %d\received : %d\n", expected, received) \
+
+
 
 int main()
 {
-	//int n = 42;
-	// char *s2 = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
+	int expected;
+	int received;
 
-	printf("\n");
-	printf("[%8.3u]\n", 8375);
-	ft_printf("[%8.3u]\n", 8375);
-
-	printf("\n");
-	printf("[%-8.3u]\n", 8375);
-	ft_printf("[%-8.3u]\n", 8375);
-
-	printf("\n");
-	printf("[%8.3u]\n", -8375);
-	ft_printf("[%8.3u]\n", -8375);
-
-	printf("\n");
-	printf("[%-8.3u]\n", -8375);
-	ft_printf("[%-8.3u]\n", -8375);
+	TEST("%s", "prout");
 
 }
