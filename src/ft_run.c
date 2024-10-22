@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:59:35 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 20:43:37 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 21:17:11 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,16 @@ void	ft_run(t_format *fm, int put_result)
 		fm->put_count += put_result;
 }
 
-void	ft_run_precision_unsigned(t_format *fm, char *str, int str_len)
+void	ft_run_precision_unsigned(
+	t_format *fm,
+	char *str,
+	int str_len,
+	char *prefix)
 {
 	if (!fm->is_padright)
 		ft_run(fm, ft_put_char_n(' ', fm->width - fm->precision));
+	if (prefix)
+		ft_run(fm, write(1, prefix, ft_strlen(prefix)));
 	ft_run(fm, ft_put_padleft(str, str_len, fm->precision, '0'));
 	if (fm->is_padright)
 		ft_run(fm, ft_put_char_n(' ', fm->width - fm->precision));

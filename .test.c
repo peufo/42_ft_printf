@@ -45,6 +45,6 @@ int main()
 	int expected;
 	int received;
 
-	TEST("%+.5d, %+.5d, %+.5d, %+.5d, %+.5d, %+.5d, %+.5d, %+.5d", 0, 5, -1, -10, 100, -1862, INT_MIN, INT_MAX);
+	TEST("%#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x", 0, 5, -1, -10, 0x1234, -1862, 0xABCDE, INT_MIN, INT_MAX, UINT_MAX);
 
 }
