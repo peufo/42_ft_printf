@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-DIR_SRC = ./src
+DIR_SRC = ./
 DIR_BUILD = build
 FLAGS = -Wall -Wextra -Werror -I ./
 
