@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 17:17:28 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:50:02 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ int		ft_put_padleft(char *str, int str_len, int width, char fill);
 int		ft_put_padright(char *str, int str_len, int width, char fill);
 int		ft_put_char_n(char c, int n);
 void	ft_run(t_format *fm, int put_result);
+void	ft_run_precision(t_format *fm, long n, char *str, int str_len);
+void	ft_run_expand_zero(t_format *fm, long n, char *str, int str_len);
 
 #endif
