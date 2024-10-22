@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:56:21 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 15:09:18 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 23:36:32 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_printf(const char *str, ...)
 	while (*str && put_count > -1)
 	{
 		if (*str == '%')
-			write_res = handle_flag(&str, &args);
+			write_res = ft_handle_format(&str, &args);
 		else
 			write_res = write(1, str++, 1);
 		if (write_res == -1)

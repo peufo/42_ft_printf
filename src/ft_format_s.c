@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_format_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 11:59:51 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 23:05:09 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/18 17:14:22 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/22 23:50:13 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	is_digit(char c)
-{
-	return ('0' <= c && c <= '9');
-}
+#include "ft_printf.h"
 
-static int	add_next_digit(const char **str, int n)
+void	format_s(va_list *args, t_format *fm)
 {
-	int	digit;
+	char	*str;
+	char	str_null[7];
+	int		str_len;
 
-	if (!**str || !is_digit(**str))
-		return (n);
-	digit = **str - '0';
-	(*str)++;
-	return (add_next_digit(str, n * 10 + digit));
-}
-
-int	ft_atoi(const char **str)
-{
-	return (add_next_digit(str, 0));
+	str = va_arg(*args, char *);
+	if (!str)
+	{
+		ft_strcpy(str_null, "(null)");
+		str = str_null;
+	}
+	str_len = ft_strlen(str);
+	if (fm->is_precision_defined && fm->precision < str_len)
+		fm->put_count = ft_put_pad(str, fm->precision, fm);
+	else
+		fm->put_count = ft_put_pad(str, str_len, fm);
 }

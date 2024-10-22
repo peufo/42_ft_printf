@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_flag.c                                      :+:      :+:    :+:   */
+/*   ft_format.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:17:09 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 20:17:32 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 23:50:13 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	init_formaters(t_formater	*formaters)
 	unsigned char	index;
 
 	index = 0;
-	while (index < UCHAR_MAX)
+	while (index < CHAR_MAX)
 		formaters[index++] = NULL;
 	formaters['c'] = format_c;
 	formaters['s'] = format_s;
@@ -58,9 +58,9 @@ static void	capture_precision(const char **str, t_format *format)
 	return ;
 }
 
-static void	init_flag(const char **str, t_format *format)
+static void	init_format(const char **str, t_format *format)
 {
-	t_formater	formaters[UCHAR_MAX];
+	t_formater	formaters[CHAR_MAX];
 
 	(*str)++;
 	init_formaters(formaters);
@@ -79,11 +79,11 @@ static void	init_flag(const char **str, t_format *format)
 	format->formater = formaters[(int)*(*str)++];
 }
 
-int	handle_flag(const char **str, va_list *args)
+int	ft_handle_format(const char **str, va_list *args)
 {
 	t_format	format;
 
-	init_flag(str, &format);
+	init_format(str, &format);
 	if (!format.formater)
 		return (-1);
 	format.formater(args, &format);

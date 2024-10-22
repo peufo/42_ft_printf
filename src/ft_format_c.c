@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_p.c                                         :+:      :+:    :+:   */
+/*   ft_format_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 17:56:24 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 16:08:18 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/18 15:56:22 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/22 23:50:13 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	format_p(va_list *args, t_format *fm)
+void	format_c(va_list *args, t_format *fm)
 {
-	unsigned long	n;
-	char			str[24];
-	int				str_len;
+	char	c;
 
-	n = va_arg(*args, unsigned long);
-	str[0] = '0';
-	str[1] = 'x';
-	str_len = ft_uitoa(str + 2, n, "0123456789abcdef");
-	ft_run(fm, ft_put_pad(str, str_len + 2, fm));
+	c = (char)va_arg(*args, int);
+	ft_run(fm, ft_put_pad(&c, 1, fm));
 }

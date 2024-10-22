@@ -2,19 +2,21 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include "src/ft_string.c"
 #include "src/ft_printf.c"
 #include "src/ft_put.c"
 #include "src/ft_run.c"
 #include "src/ft_atoi.c"
 #include "src/ft_itoa.c"
-#include "src/handle_flag.c"
-#include "src/format_c.c"
-#include "src/format_di.c"
-#include "src/format_p.c"
-#include "src/format_percent.c"
-#include "src/format_s.c"
-#include "src/format_u.c"
-#include "src/format_x.c"
+#include "src/ft_format.c"
+#include "src/ft_format_c.c"
+#include "src/ft_format_di.c"
+#include "src/ft_format_p.c"
+#include "src/ft_format_percent.c"
+#include "src/ft_format_s.c"
+#include "src/ft_format_u.c"
+#include "src/ft_format_x.c"
+
 
 
 // %[flags][width][.precision]specifier

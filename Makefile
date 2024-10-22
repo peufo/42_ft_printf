@@ -3,7 +3,7 @@ DIR_SRC = ./src
 DIR_BUILD = build
 FLAGS = -Wall -Wextra -Werror -I ./
 
-SOURCES		=	format_c.c format_di.c format_p.c format_percent.c format_s.c format_u.c format_x.c ft_atoi.c ft_itoa.c ft_printf.c ft_put.c ft_run.c handle_flag.c utils.c 
+SOURCES		=	ft_atoi.c ft_format.c ft_format_c.c ft_format_di.c ft_format_p.c ft_format_percent.c ft_format_s.c ft_format_u.c ft_format_x.c ft_itoa.c ft_printf.c ft_put.c ft_run.c ft_string.c 
 FUNCTIONS	=	$(subst .c,,$(notdir $(SOURCES)))
 OBJECTS		=	$(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(FUNCTIONS)))
 

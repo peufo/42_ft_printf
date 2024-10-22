@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 12:18:37 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 18:05:12 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 23:50:13 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,19 @@ static char	*get_end(char *dest, unsigned long n, int base_len)
 	return (get_end(dest + 1, n / base_len, base_len));
 }
 
-static int	handle_signed_zero(char *dest, t_format *fm)
+static int	ft_is_valid_base(char *base)
 {
-	*(dest++) = fm->sign_positive;
-	*(dest++) = '0';
-	*(dest++) = '\0';
-	return (2);
+	while (*base)
+	{
+		if (*base < ' '
+			|| *base == 127
+			|| *base == '+'
+			|| *base == '-'
+			|| ft_includes(base + 1, *base))
+			return (0);
+		base++;
+	}
+	return (1);
 }
 
 int	ft_itoa(char *dest, long n, char *base, t_format *fm)
@@ -47,7 +54,12 @@ int	ft_itoa(char *dest, long n, char *base, t_format *fm)
 	if (base_len < 2 || !ft_is_valid_base(base))
 		return (-1);
 	if (n == 0)
-		return (handle_signed_zero(dest, fm));
+	{
+		*(dest++) = fm->sign_positive;
+		*(dest++) = '0';
+		*(dest++) = '\0';
+		return (2);
+	}
 	if (n < 0)
 	{
 		*(dest++) = '-';
