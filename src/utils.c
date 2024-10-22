@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:13:43 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 17:05:49 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:17:37 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,4 @@ int	ft_is_valid_base(char base[])
 		base++;
 	}
 	return (1);
-}
-
-int	ft_is_digit(char c)
-{
-	return ('0' <= c && c <= '9');
 }

@@ -3,8 +3,6 @@
 #include <unistd.h>
 #include <string.h>
 #include "src/ft_printf.c"
-#include "src/ft_put_nbr.c"
-#include "src/ft_put_unbr.c"
 #include "src/ft_put.c"
 #include "src/ft_atoi.c"
 #include "src/ft_itoa.c"
@@ -32,22 +30,27 @@
 //		padleft du nombre avec des "0". signe exclue
 
 #define TEST(...) \
-	printf("%s:%d\n[", __FILE__, __LINE__); \
+	printf("\n%s:%d\n[", __FILE__, __LINE__); \
 	expected = printf(__VA_ARGS__); \
 	printf("]\n"); \
 	ft_printf("["); \
 	received = ft_printf(__VA_ARGS__); \
 	ft_printf("]\n"); \
 	if (expected != received) \
-		printf("expected : %d\received : %d\n", expected, received) \
-
-
+		printf("expected : %d\nreceived : %d\n", expected, received) \
 
 int main()
 {
 	int expected;
 	int received;
 
-	TEST("%s", "prout");
+	TEST("%.5x", 21);
+	TEST("%.3x", 0);
+	TEST("%8.5x", 34);
+	TEST("%8.5x", 0);
+	TEST("%2.7x", 3267);
+	TEST("%-8.5x", 34);
+	TEST("%-8.5x", 0);
+	TEST("%-2.7x", 3267);
 
 }
