@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:59:35 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 21:17:11 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 21:24:43 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,18 @@ void	ft_run_precision_unsigned(
 	int str_len,
 	char *prefix)
 {
+	int	padding;
+
+	padding = fm->width - fm->precision;
+	if (prefix)
+		padding -= ft_strlen(prefix);
 	if (!fm->is_padright)
-		ft_run(fm, ft_put_char_n(' ', fm->width - fm->precision));
+		ft_run(fm, ft_put_char_n(' ', padding));
 	if (prefix)
 		ft_run(fm, write(1, prefix, ft_strlen(prefix)));
 	ft_run(fm, ft_put_padleft(str, str_len, fm->precision, '0'));
 	if (fm->is_padright)
-		ft_run(fm, ft_put_char_n(' ', fm->width - fm->precision));
+		ft_run(fm, ft_put_char_n(' ', padding));
 }
 
 void	ft_run_precision(t_format *fm, long n, char *str, int str_len)

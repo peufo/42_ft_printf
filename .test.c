@@ -38,13 +38,16 @@
 	received = ft_printf(__VA_ARGS__); \
 	ft_printf("]\n"); \
 	if (expected != received) \
-		printf("expected : %d\nreceived : %d\n", expected, received) \
+		printf("expected : %d\nreceived : %d\n", expected, received); \
 
 int main()
 {
 	int expected;
 	int received;
 
-	TEST("%#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x", 0, 5, -1, -10, 0x1234, -1862, 0xABCDE, INT_MIN, INT_MAX, UINT_MAX);
+	TEST("%0#5x, %0#5x, %0#5x, %0#5x, %0#5x, %0#5x, %0#5x, %0#5x, %0#5x, %0#5x", 0, 5, -1, -10, 0x1234, -1862, 0xABCDE, INT_MIN, INT_MAX, UINT_MAX)
+	TEST("%0#10x, %0#10x, %0#10x, %0#10x, %0#10x, %0#10x, %0#10x, %0#10x, %0#10x, %0#10x", 0, 5, -1, -10, 0x1234, -1862, 0xABCDE, INT_MIN, INT_MAX, UINT_MAX)
+	TEST("%#10.5x, %#10.5x, %#10.5x, %#10.5x, %#10.5x, %#10.5x, %#10.5x, %#10.5x, %#10.5x, %#10.5x", 0, 5, -1, -10, 0x1234, -1862, 0xABCDE, INT_MIN, INT_MAX, UINT_MAX)
+	TEST("%#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x, %#.5x", 0, 5, -1, -10, 0x1234, -1862, 0xABCDE, INT_MIN, INT_MAX, UINT_MAX)
 
 }
