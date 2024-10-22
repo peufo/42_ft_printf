@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:17:09 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 19:55:20 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 20:17:32 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ static void	capture_precision(const char **str, t_format *format)
 	if (**str != '.')
 		return ;
 	(*str)++;
-	if ('0' <= **str && **str <= '9')
-		format->precision = ft_atoi(str);
-	else
-		format->is_precision_null = 1;
+	format->precision = ft_atoi(str);
 	format->is_precision_defined = 1;
 	format->is_expand_zero = 0;
 	return ;
@@ -75,7 +72,6 @@ static void	init_flag(const char **str, t_format *format)
 	format->is_prefix_hex = 0;
 	format->is_expand_zero = 0;
 	format->is_precision_defined = 0;
-	format->is_precision_null = 0;
 	while (capture_flags(**str, format))
 		(*str)++;
 	format->width = ft_atoi(str);

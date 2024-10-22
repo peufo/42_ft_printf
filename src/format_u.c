@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:35:39 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 19:47:41 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 20:14:43 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	format_u(va_list *args, t_format *fm)
 	str_len = ft_uitoa(str, n, "0123456789");
 	if (fm->precision > str_len)
 		return (ft_run_precision_unsigned(fm, str, str_len));
-	if (fm->is_precision_null)
+	if (!n && fm->is_precision_defined && !fm->precision)
 		return (ft_run(fm, ft_put_pad(str, 0, fm)));
 	ft_run(fm, ft_put_pad(str, str_len, fm));
 }

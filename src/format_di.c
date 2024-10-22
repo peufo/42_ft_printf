@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:08:33 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 19:42:38 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 20:14:08 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	format_di(va_list *args, t_format *fm)
 		return (ft_run_expand_zero(fm, n, str, str_len));
 	if (fm->precision >= str_len)
 		return (ft_run_precision(fm, n, str, str_len));
-	if (fm->is_precision_null)
+	if (!n && fm->is_precision_defined && !fm->precision)
 		return (ft_run(fm, ft_put_pad(str, 0, fm)));
 	if (!fm->sign_positive && n >= 0)
 		return (ft_run(fm, ft_put_pad(str + 1, str_len - 1, fm)));
