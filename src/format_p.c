@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:56:24 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 15:37:56 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:51:12 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	format_p(va_list *args, t_format *fm)
 {
 	unsigned long	n;
-	char	str[12];
+	char	str[24];
 	int		str_len;
-
+	
 	n = va_arg(*args, unsigned long);
 	str[0] = '0';
 	str[1] = 'x';
