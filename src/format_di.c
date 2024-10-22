@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:08:33 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 16:18:39 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:44:47 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_run_precision(t_format *fm, long n, char *str, int str_len)
 	int		padding;
 
 	is_sign_print = (fm->sign_positive || n < 0);
-	padding = fm->width - fm->precision - is_sign_print;
+	padding = fm->width - fm->precision - is_sign_print - 1;
 	if (!fm->is_padright)
 		ft_run(fm, ft_put_char_n(' ', padding));
 	ft_run(fm, ft_put_sign(n, fm));

@@ -39,38 +39,15 @@
 
 int main()
 {
-	int n = 42;
+	//int n = 42;
 	// char *s2 = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
 
 	printf("\n");
-	printf("[%3%]\n");
-	ft_printf("[%3%]\n");
+	printf("[%8.3i]\n", 8375);
+	ft_printf("[%8.3i]\n", 8375);
 
 	printf("\n");
-	printf("[%-3%]\n");
-	ft_printf("[%-3%]\n");
+	printf("[%8.3i]\n", -8375);
+	ft_printf("[%8.3i]\n", -8375);
 
-	printf("\n");
-	printf("[%.d]\n", n);
-	ft_printf("[%.d]\n", n);
-
-	printf("\n");
-	printf("[%2.s]\n", "012345");
-	ft_printf("[%2.s]\n", "012345");
-
-	printf("\n");
-	printf("[%5.3s]\n", (char *)0);
-	ft_printf("[%5.3s]\n", (char *)0);
-
-	printf("\n");
-	printf("[%5.3s]\n", "012345");
-	ft_printf("[%5.3s]\n", "012345");
-
-	printf("\n");
-	printf("[%-5.3s]\n", "012345");
-	ft_printf("[%-5.3s]\n", "012345");
-
-	printf("\n");
-	printf("[%5s]\n", "012345");
-	ft_printf("[%5s]\n", "012345");
 }
