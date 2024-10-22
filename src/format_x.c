@@ -6,13 +6,13 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:38:29 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 20:14:28 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 20:21:52 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	format_x(va_list *args, t_format *fm, char *base)
+static void	format_x(va_list *args, t_format *fm, char prefix, char *base)
 {
 	unsigned int	n;
 	char			str[13];
@@ -22,7 +22,7 @@ static void	format_x(va_list *args, t_format *fm, char *base)
 	n = va_arg(*args, unsigned int);
 	_str = str;
 	str[0] = '0';
-	str[1] = 'x';
+	str[1] = prefix;
 	str_len = ft_uitoa(str + 2, n, base);
 	if (fm->is_prefix_hex)
 		str_len += 2;
@@ -37,10 +37,10 @@ static void	format_x(va_list *args, t_format *fm, char *base)
 
 void	format_x_lower(va_list *args, t_format *fm)
 {
-	format_x(args, fm, "0123456789abcdef");
+	format_x(args, fm, 'x', "0123456789abcdef");
 }
 
 void	format_x_upper(va_list *args, t_format *fm)
 {
-	format_x(args, fm, "0123456789ABCDEF");
+	format_x(args, fm, 'X', "0123456789ABCDEF");
 }

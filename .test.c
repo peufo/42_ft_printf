@@ -44,46 +44,17 @@ int main()
 	int expected;
 	int received;
 
-	TEST("%.0i", 42);
-	TEST("%.i", 42);
-	TEST("%5.0i", 42);
-	TEST("%5.i", 42);
-	TEST("%-5.0i", 42);
-	TEST("%-5.i", 42);
-	TEST("%.0d", 42);
-	TEST("%.d", 42);
-	TEST("%5.0d", 42);
-	TEST("%5.d", 42);
-	TEST("%-5.0d", 42);
-	TEST("%-5.d", 42);
-	TEST("%.0u", 42);
-	TEST("%.u", 42);
-	TEST("%5.0u", 42);
-	TEST("%5.u", 42);
-	TEST("%-5.0u", 42);
-	TEST("%-5.u", 42);
-	TEST("%.0x", 42);
-	TEST("%.x", 42);
-
-	TEST("%.0i", 0);
-	TEST("%.i", 0);
-	TEST("%5.0i", 0);
-	TEST("%5.i", 0);
-	TEST("%-5.0i", 0);
-	TEST("%-5.i", 0);
-	TEST("%.0d", 0);
-	TEST("%.d", 0);
-	TEST("%5.0d", 0);
-	TEST("%5.d", 0);
-	TEST("%-5.0d", 0);
-	TEST("%-5.d", 0);
-	TEST("%.0u", 0);
-	TEST("%.u", 0);
-	TEST("%5.0u", 0);
-	TEST("%5.u", 0);
-	TEST("%-5.0u", 0);
-	TEST("%-5.u", 0);
-	TEST("%.0x", 0);
-	TEST("%.x", 0);
+	TEST(" %#X ", 1);
+	TEST(" %#X ", 9);
+	TEST(" %#X ", 10);
+	TEST(" %#X ", 11);
+	TEST(" %#X ", 15);
+	TEST(" %#X ", 16);
+	TEST(" %#X ", 17);
+	TEST(" %#X ", 99);
+	TEST(" %#X ", 100);
+	TEST(" %#X ", 101);
+	TEST(" %#X ", -9);
+	TEST(" %#X ", -10);
 
 }
