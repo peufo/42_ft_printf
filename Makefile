@@ -12,6 +12,9 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	@ar -cr $@ $^
 
+bonus: $(OBJECTS)
+	@ar -cr $(NAME) $^
+
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.c | $(DIR_BUILD)
 	@cc $(FLAGS) -c $^ -o $@
 

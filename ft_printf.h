@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:17:04 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 15:31:38 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:02:50 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	format_percent(va_list *args, t_format *fm);
 int		ft_put_nbr(long nbr, char *base);
 int		ft_put_unbr(unsigned long nbr, char *base);
 int		ft_strlen(char *str);
-int		ft_includes(char str[], char c);
+void	ft_strcpy(char *dest, char *src);
 int		ft_is_valid_base(char base[]);
 int		ft_is_digit(char c);
 int		ft_atoi(const char **str);

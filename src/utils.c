@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:13:43 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 12:01:13 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:05:49 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-int	ft_includes(char str[], char c)
+void	ft_strcpy(char *dest, char *src)
+{
+	while (*src)
+		*(dest++) = *(src++);
+	*dest = '\0';
+}
+
+static int	ft_includes(char str[], char c)
 {
 	while (*str)
 	{
