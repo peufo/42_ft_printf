@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   format_percent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:45:49 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:05:21 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:01:43 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_percent(va_list args, t_format *format)
+void	format_percent(va_list *args, t_format *fm)
 {
 	(void)args;
-	(void)format;
-	return (write(1, "%", 1));
+	fm->put_count = write(1, "%", 1);
 }

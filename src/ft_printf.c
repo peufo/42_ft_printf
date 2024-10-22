@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:56:21 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/20 16:59:39 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:09:18 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 int	ft_printf(const char *str, ...)
 {
 	va_list		args;
-	int			count;
+	int			put_count;
 	int			write_res;
 
 	va_start(args, str);
-	count = 0;
-	while (*str && count > -1)
+	put_count = 0;
+	while (*str && put_count > -1)
 	{
 		if (*str == '%')
-			write_res = handle_flag(&str, args);
+			write_res = handle_flag(&str, &args);
 		else
 			write_res = write(1, str++, 1);
 		if (write_res == -1)
 		{
-			count = -1;
+			put_count = -1;
 			break ;
 		}
-		count += write_res;
+		put_count += write_res;
 	}
 	va_end(args);
-	return (count);
+	return (put_count);
 }

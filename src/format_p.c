@@ -3,26 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   format_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:56:24 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:04:55 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:37:56 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_p(va_list args, t_format *format)
+void	format_p(va_list *args, t_format *fm)
 {
-	int		put_count;
-	long	n;
+	unsigned long	n;
+	char	str[12];
+	int		str_len;
 
-	(void)format;
-	n = va_arg(args, long);
-	if (write(1, "0x", 2) == -1)
-		return (-1);
-	put_count = ft_put_unbr(n, "0123456789abcdef");
-	if (put_count == -1)
-		return (-1);
-	return (put_count + 2);
+	n = va_arg(*args, unsigned long);
+	str[0] = '0';
+	str[1] = 'x';
+	str_len = ft_uitoa(str + 2, n, "0123456789abcdef");
+	ft_run(fm, ft_put_pad(str, str_len + 2, fm));
 }

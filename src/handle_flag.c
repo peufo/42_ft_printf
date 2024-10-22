@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_flag.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:17:09 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 17:26:31 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:01:57 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void	init_formaters(t_formater	*formaters)
 
 static char	capture_flags(char c, t_format *format)
 {
-	if (!c || !ft_includes("0#- +", c))
-		return (0);
 	if (c == '0')
 		format->is_expand_zero = 1;
 	else if (c == '#')
@@ -44,6 +42,8 @@ static char	capture_flags(char c, t_format *format)
 		format->sign_positive = ' ';
 	else if (c == '+')
 		format->sign_positive = '+';
+	else
+		return (0);
 	return (1);
 }
 
@@ -62,11 +62,12 @@ static void	init_flag(const char **str, t_format *format)
 	(*str)++;
 	init_formaters(formaters);
 	format->formater = NULL;
+	format->sign_positive = '\0';
 	format->precision = 0;
 	format->is_padright = 0;
 	format->is_prefix_hex = 0;
 	format->is_expand_zero = 0;
-	format->sign_positive = '\0';
+	format->put_count = 0;
 	while (capture_flags(**str, format))
 		(*str)++;
 	format->width = ft_atoi(str);
@@ -76,12 +77,13 @@ static void	init_flag(const char **str, t_format *format)
 	format->formater = formaters[(int)*(*str)++];
 }
 
-int	handle_flag(const char **str, va_list args)
+int	handle_flag(const char **str, va_list *args)
 {
 	t_format	format;
 
 	init_flag(str, &format);
-	if (format.formater)
-		return (format.formater(args, &format));
-	return (-1);
+	if (!format.formater)
+		return (-1);
+	format.formater(args, &format);
+	return (format.put_count);
 }

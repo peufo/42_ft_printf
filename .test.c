@@ -40,7 +40,16 @@
 int main()
 {
 	int n = 42;
-	
+	char *s2 = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
+
+	printf("\n");
+	printf("%30p\n", s2);
+	ft_printf("%30p\n", s2);
+
+	printf("\n");
+	printf("[%d]\n", 0);
+	ft_printf("[%d]\n", 0);
+
 	printf("\n");
 	printf("[%+d]\n", 0);
 	ft_printf("[%+d]\n", 0);

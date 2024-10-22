@@ -30,6 +30,7 @@ watch() {
 				echo "$NORM_ERROR"
 			fi
 
+			echo ""
 			rm -f test
 			make test
 			if [ ! -f "test" ]; then

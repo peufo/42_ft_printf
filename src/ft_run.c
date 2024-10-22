@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_x.c                                         :+:      :+:    :+:   */
+/*   ft_run.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 18:38:29 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 15:01:34 by jvoisard         ###   ########.fr       */
+/*   Created: 2024/10/22 12:59:35 by jvoisard          #+#    #+#             */
+/*   Updated: 2024/10/22 13:47:59 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	format_x_lower(va_list *args, t_format *fm)
+void	ft_run(t_format *f, int put_result)
 {
-	unsigned int	n;
-
-	n = va_arg(*args, unsigned int);
-	fm->put_count = ft_put_nbr(n, "0123456789abcdef");
-}
-
-void	format_x_upper(va_list *args, t_format *fm)
-{
-	unsigned int	n;
-
-	n = va_arg(*args, unsigned int);
-	fm->put_count = ft_put_nbr(n, "0123456789ABCDEF");
+	if (put_result == -1)
+		f->put_count = -1;
+	if (f->put_count != -1)
+		f->put_count += put_result;
 }

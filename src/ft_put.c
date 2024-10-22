@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:47:28 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 12:18:11 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:33:15 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_put_char_n(char c, int n)
 			return (-1);
 		print_count++;
 	}
-	return (print_count);	
+	return (print_count);
 }
 
 int	ft_put_padleft(char *str, int str_len, int width, char fill)
@@ -50,28 +50,28 @@ int	ft_put_padright(char *str, int str_len, int width, char fill)
 	return (print_count + str_len);
 }
 
-int	ft_put_pad(char *str, int str_len, t_format *format)
+int	ft_put_pad(char *str, int str_len, t_format *fm)
 {
-	if (format->is_padright)
-		return (ft_put_padright(str, str_len, format->width, ' '));
-	if (format->is_expand_zero)
-		return (ft_put_padleft(str, str_len, format->width, '0'));
-	return (ft_put_padleft(str, str_len, format->width, ' '));
+	if (fm->is_padright)
+		return (ft_put_padright(str, str_len, fm->width, ' '));
+	if (fm->is_expand_zero)
+		return (ft_put_padleft(str, str_len, fm->width, '0'));
+	return (ft_put_padleft(str, str_len, fm->width, ' '));
 }
 
-int	ft_put_sign(int n, t_format *format)
+int	ft_put_sign(int n, t_format *fm)
 {
 	if (n == 0)
 		return (0);
 	if (n < 0)
 	{
-		format->width--;
+		fm->width--;
 		return (write(1, &"-", 1));
 	}
-	if (format->sign_positive)
+	if (fm->sign_positive)
 	{
-		format->width--;
-		return (write(1, &format->sign_positive, 1));
+		fm->width--;
+		return (write(1, &fm->sign_positive, 1));
 	}
 	return (0);
 }
