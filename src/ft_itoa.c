@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 12:18:37 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 18:17:08 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:16:28 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*get_end(char *dest, unsigned int n, int base_len)
 {
 	if (n == 0)
 	{
-		*(dest + 1) = '\0';
+		*dest = '\0';
 		return (dest);
 	}
 	return (get_end(dest + 1, n / base_len, base_len));
@@ -32,9 +32,10 @@ static char	*get_end(char *dest, unsigned int n, int base_len)
 
 static int	handle_zero(char *dest)
 {
+	*(dest++) = '+';
 	*(dest++) = '0';
 	*(dest++) = '\0';
-	return (1);
+	return (2);
 }
 
 int	ft_itoa(char *dest, int n, char *base, t_format *format)

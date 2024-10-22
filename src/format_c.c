@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_c.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvoisard <jvoisard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:56:22 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/21 13:28:13 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:52:50 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	format_c(va_list args, t_format *format)
 
 	(void)format;
 	c = (char)va_arg(args, int);
-	return (ft_pad(&c, 1, format));
+	return (ft_put_pad(&c, 1, format));
 }

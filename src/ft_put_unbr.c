@@ -24,7 +24,9 @@ static int	ft_unit(unsigned long nbr, char *base, int base_len, int count)
 		return (-1);
 	return (count + 1);
 }
-
+/**
+ * @deprecated
+ */
 int	ft_put_unbr(unsigned long nbr, char *base)
 {
 	int	base_len;

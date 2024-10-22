@@ -5,7 +5,7 @@
 #include "src/ft_printf.c"
 #include "src/ft_put_nbr.c"
 #include "src/ft_put_unbr.c"
-#include "src/ft_pad.c"
+#include "src/ft_put.c"
 #include "src/ft_atoi.c"
 #include "src/ft_itoa.c"
 #include "src/handle_flag.c"
@@ -41,6 +41,10 @@ int main()
 {
 	int n = 42;
 	
+	printf("\n");
+	printf("[%+d]\n", 0);
+	ft_printf("[%+d]\n", 0);
+
 	printf("\n");
 	printf("[%7.4d]\n", n);
 	ft_printf("[%7.4d]\n", n);
