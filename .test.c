@@ -4,6 +4,7 @@
 #include <string.h>
 #include "src/ft_printf.c"
 #include "src/ft_put.c"
+#include "src/ft_run.c"
 #include "src/ft_atoi.c"
 #include "src/ft_itoa.c"
 #include "src/handle_flag.c"
@@ -44,6 +45,6 @@ int main()
 	int expected;
 	int received;
 
-	TEST(" %#x ", 0);
+	TEST("%+.5d, %+.5d, %+.5d, %+.5d, %+.5d, %+.5d, %+.5d, %+.5d", 0, 5, -1, -10, 100, -1862, INT_MIN, INT_MAX);
 
 }

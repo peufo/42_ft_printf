@@ -6,7 +6,7 @@
 /*   By: jvoisard <jonas.voisard@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:47:28 by jvoisard          #+#    #+#             */
-/*   Updated: 2024/10/22 15:56:06 by jvoisard         ###   ########.fr       */
+/*   Updated: 2024/10/22 20:43:23 by jvoisard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ int	ft_put_pad(char *str, int str_len, t_format *fm)
 
 int	ft_put_sign(int n, t_format *fm)
 {
-	if (n == 0)
-		return (0);
 	if (n < 0)
 		return (write(1, &"-", 1));
 	if (fm->sign_positive)
